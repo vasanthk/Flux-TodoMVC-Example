@@ -29,6 +29,8 @@ Control is inverted with stores
 Data in Flux flows in a single direction
 Action -> Dispatcher -> Store -> View
 
+![Flux Explained](https://cdn.rawgit.com/vasanthk/Flux-TodoMVC-Example/master/Flux-Explained.png)
+
 ### Actions 
 * Are simple objects containing the new data and an identifying 'type' property. Views may cause a new action to be propogated throught the system in response to user interactions.
 
