@@ -4,6 +4,7 @@
 
 var React = require('react');
 var ReactPropTypes = React.PropTypes;
+var TodoActions = require('../actions/TodoActions');
 
 var Footer = React.createClass({
 
@@ -30,6 +31,17 @@ var Footer = React.createClass({
     var itemsLeftPhrase = itemsLeft === 1 ? ' item ' : ' items ';
     itemsLeftPhrase += 'left';
 
+    // Undefined and thus not rendered if no completed items are left.
+    var clearCompletedButton;
+    if (completed) {
+      clearCompletedButton =
+        <button
+          id="clear-completed"
+          onClick={this._onClearCompletedClick}>
+          Clear completed ({completed})
+        </button>;
+    }
+
     return (
       <footer id="footer">
         <span id="todo-count">
@@ -38,8 +50,16 @@ var Footer = React.createClass({
           </strong>
           {itemsLeftPhrase}
         </span>
+        {clearCompletedButton}
       </footer>
     );
+  },
+
+  /**
+   * Event handler to delete all completed TODOs
+   */
+  _onClearCompletedClick: function () {
+    TodoActions.destroyCompleted();
   }
 
 });
