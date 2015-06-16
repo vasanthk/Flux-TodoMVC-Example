@@ -1,0 +1,50 @@
+{
+  "name": "Flux-TodoMVC-Example",
+  "version": "1.0.0",
+  "description": "To demonstrate the Flux architecture with some example code, let's take on the classic TodoMVC application.",
+  "main": "js/app.js",
+  "scripts": {
+    "start": "watchify -o js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vasanthk/Flux-TodoMVC-Example.git"
+  },
+  "keywords": [
+    "react",
+    "flux",
+    "todo"
+  ],
+  "author": "Vasanth Krishnamoorthy (http://www.vasanthk.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vasanthk/Flux-TodoMVC-Example/issues"
+  },
+  "homepage": "https://github.com/vasanthk/Flux-TodoMVC-Example",
+  "dependencies": {
+    "flux": "^2.0.3",
+    "keymirror": "^0.1.1",
+    "object-assign": "^3.0.0",
+    "react": "^0.13.3",
+    "todomvc-common": "^1.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "envify": "^3.4.0",
+    "jest-cli": "^0.4.13",
+    "reactify": "^1.1.1",
+    "uglify-js": "^2.4.23",
+    "watchify": "^3.2.2"
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  },
+  "jest": {
+    "rootDir": "./js"
+  }
+}
