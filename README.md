@@ -56,3 +56,21 @@ Action -> Dispatcher -> Store -> View
 * The dispatcher exposes a method that allows us to trigger a dispatch to the stores, and to include a payload of data, which we call an action. 
 * The action's creation may be wrapped into a semantic helper method which sends the action to the dispatcher.
 * Actions may also come from other places, such as the server. This happens, for example, during data initialization. It may also happen when the server returns an error code or when the server has updates to provide to the application.
+
+### Running the App
+
+You must have [npm](https://www.npmjs.org/) installed on your computer.
+From the root project directory run these commands from the command line:
+
+    npm install
+
+This will install all dependencies.
+To build the project, first run this command:
+
+    npm start
+
+This will perform an initial build and start a watcher process that will update bundle.js with any changes you wish to make. 
+
+This watcher is based on [Browserify](http://browserify.org/) and [Watchify](https://github.com/substack/watchify), and it transforms React's JSX syntax into standard JavaScript with [Reactify](https://github.com/andreypopp/reactify).
+
+To run the app, simply open the index.html file in a browser or spin up a http server and open your localhost url.
